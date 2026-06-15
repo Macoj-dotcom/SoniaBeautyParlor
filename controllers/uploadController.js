@@ -1,21 +1,18 @@
 const cloudinary = require("../config/cloudinary");
 const uploadImage = async (req, res) => {
     try {
-        const result = await cloudinary.uploader.upload(req.file.path,
-        {
-            folder: "sonia-beauty"
+        if (!req.file) {
+            return res.status(400).json({message: "No file uploaded"});
         }
-        );
-    
-       res.json({
-        imageUrl: result.secure_url
-      });
-    
+        const result = await cloudinary.uploader.upload(req.file.path, {
+            folder: "Sonia-Beauty"
+        });
+        res.json({
+            imageUrl: result.secure_url
+        });
     } catch (error) {
-    res.status(500).json({message: "error message",});
+        console.error("Cloudinary Upload Error:", error);
+        res.status(500).json({message: error.message || "Internal Server Error"});
     }
 };
-
-module.exports = {
-    uploadImage
-};
+module.exports = {uploadImage};

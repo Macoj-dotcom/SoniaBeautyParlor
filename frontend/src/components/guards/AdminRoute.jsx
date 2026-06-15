@@ -5,7 +5,7 @@ function AdminRoute({ children }) {
     );
     if (
         !user ||
-        !["admin", "staff"].includes(user?.role)
+        !(["admin", "staff"].includes(user?.role))
     ) {
         return <Navigate to="/dashboard" />;
     }

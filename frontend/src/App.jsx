@@ -1,22 +1,18 @@
 import { Routes, Route } from "react-router-dom";  
-import login from "./pages/Register";
+import Login from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
-import myBookings from "./pages/myBookings";
-import bookAppointment from "./pages/bookAppointment";
+import MyBookings from "./pages/myBookings";
+import BookAppointment from "./pages/bookAppointment";
 import staffDashboard from "./pages/staffDashboard";
-import Protectedroute from "./components/guards/Protectedroute";
+import ProtectedRoute from "./components/guards/Protectedroute";
 import AdminRoute from "./components/guards/AdminRoute";
 
 function App() {
     return (
         <Routes>
             {/*Public Routes*/}
-            <Route
-            path="/"element={<login/>}
-            />
-            <Route
-            path="/Register" element={<Register/>}
-            />
+            <Route path="/"element={<login/>} />
+            <Route path="/Register" element={<Login/>} />
             /*client Routes*/ 
             <Route
             path="/dashboard" element={<Protectedroute><Dashboard />

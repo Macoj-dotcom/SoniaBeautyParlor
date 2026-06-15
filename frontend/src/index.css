@@ -20,7 +20,7 @@ body{
     border-radius: 10px;
 }
 .form h2 {
-    marging-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .form input {
@@ -78,18 +78,20 @@ table th {
 }
 @media(max-width: 768px){
 
-    .navbar{
-    flex-direction: column;
-    gap: 15px;
-}
-.nav-links{
-    flex-wrap: wrap;
-    justify-content: center;
-}
-table{
-    display: block;
-    overflow-x: auto;
-}
-}
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .nav-links{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    table {
+        display: block;
+        overflow-x: auto;
+    } 
+}   
+
 
 

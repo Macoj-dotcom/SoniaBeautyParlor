@@ -1,13 +1,14 @@
 import { useQuery } from "tanstack/react-query";
 import api from "../api/axios";
+
 export const useBookings = () => {
-    const fecthBookings = async () => {
-        const { data } = await api.get("/bookings/mybookings");
+    const fetchBookings = async () => {
+        const { data } = await api.get("/bookings");
         return data;
     };
 
     return useQuery({
         queryKey: ["bookings"],
-        queryFn: fecthBookings,
+        queryFn: fetchBookings,
     });
 };

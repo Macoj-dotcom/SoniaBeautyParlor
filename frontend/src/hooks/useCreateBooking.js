@@ -6,14 +6,16 @@ export const useCreateBooking = () => {
     const queryClient = useQueryClient();
 
     return useMutation({
-        mutationFn: (bookingData) =>
-            api.post("/bookings", bookingData),
-            onSuccess: () => {
-                queryClient.invalidateQueries({
-                    queryKey: ["bookings"],
-
-                    
-                });
-            },
+        mutationFn: async (bookingData) => {
+            const { data } = await api.post("/bookings", bookingData);
+            return data;
+        },
+            
+        onSuccess: () => {
+            queryClient.invalidateQueries({
+                queryKey: ["bookings"],
+                   
+            });
+        },
     });
 };

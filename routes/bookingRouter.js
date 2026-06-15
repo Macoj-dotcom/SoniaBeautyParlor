@@ -9,16 +9,12 @@ const {
 } = require ("../controllers/bookingController");
 
 const protect = require("../middleware/authMiddleware");
-const roleMiddleware =require("../middleware/authMiddleware/roleMiddleware");
+const roleMiddleware =require("../middleware/roleMiddleware");
 
 
 router.post("/", protect, createBooking);
 router.get("/my-bookings", protect, getMyBookings);
-router.put(
-    "/cancel/:id",
-    protect,
-    cancelBooking
-);
+router.put("/cancel/:id", protect, cancelBooking);
 router.get(
     "/all",
     protect,

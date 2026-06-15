@@ -9,7 +9,7 @@ import {
 import App from "./App";
 import "./index.css";
 
-const quertClient = new QueryClient();
+const queryClient = new QueryClient();
 ReactDOM.createRoot(
     document.getElementById("root")
 ).render(
